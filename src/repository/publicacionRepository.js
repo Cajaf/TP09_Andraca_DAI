@@ -2,7 +2,7 @@ import pkg from 'pg'
 import config from './../configs/db-config.js';     
 const { Pool }  = pkg;
 
-export default class ProvinciaRepository {
+export default class publicacionRepository {
     constructor() {
         this.DBPool     = null;
     }
@@ -14,7 +14,7 @@ export default class ProvinciaRepository {
         return this.DBPool;
     }
 
-     getAllProvincias = async () => {
+     getAll = async () => {
         let returnArray = null;
         try {
             const sql = `SELECT * FROM provincias`;

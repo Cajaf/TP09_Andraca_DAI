@@ -1,6 +1,6 @@
 import express  from "express"; 
 import cors     from "cors"; 
-import ProvinceRouter from "./src/controllers/province-controller.js" 
+import PublicacionRouter from "./src/controllers/publicacion-controller.js" 
 import 'dotenv'
 
 const app  = express(); 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json()); 
 
 
-app.use("/api/province", ProvinceRouter); 
+app.use("/api/publicacion", PublicacionRouter); 
 
 
 app.listen(port, () => { 
