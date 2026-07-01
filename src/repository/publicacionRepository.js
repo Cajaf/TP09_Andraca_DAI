@@ -1,18 +1,18 @@
-import pkg from 'pg'
+
 import config from './../configs/db-config.js';     
-const { Pool }  = pkg;
+import pool from "../db/connection.js";
 
 export default class publicacionRepository {
     constructor() {
-        this.DBPool     = null;
+        this.DBPool = null;
     }
 
-     getDBPool = () => {
-        if (this.DBPool == null){
-            this.DBPool = new Pool(config);
+    getDBPool = () => {
+        if (this.DBPool == null) {
+        this.DBPool = pool;
         }
         return this.DBPool;
-    }
+    };
 
      getAll = async () => {
         let returnArray = null;
