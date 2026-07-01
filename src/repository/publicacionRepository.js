@@ -26,6 +26,8 @@ export default class publicacionRepository {
         return returnArray;
     }
 
+
+    //use el usuario id para traer las publicaciones del usuario
     getByIdAsync = async (id) => {
         let returnEntity = null;
         try {
@@ -41,18 +43,18 @@ export default class publicacionRepository {
         return returnEntity;
     }
 
-    deleteByIdAsync = async (id) => {
-        let returnRows = null;
-         try {
-            const sql = `DELETE FROM publicacion WHERE id=$1`;
-            const values = [id];
-            const result = await this.getDBPool().query(sql, values);
-            returnRows = result.rowCount;
-        } catch (error) {
-            console.log(error)
-        }
-        return returnRows;
-    }
+    // deleteByIdAsync = async (id) => {
+    //     let returnRows = null;
+    //      try {
+    //         const sql = `DELETE FROM publicacion WHERE id=$1`;
+    //         const values = [id];
+    //         const result = await this.getDBPool().query(sql, values);
+    //         returnRows = result.rowCount;
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    //     return returnRows;
+    // }
 
     //  updateAsync = async (entity) => {
     //     let returnRows = null;
@@ -84,28 +86,28 @@ export default class publicacionRepository {
     // }
 
 
-    createAsync = async (entity) => {
-        let newId = 0;
+    // createAsync = async (entity) => {
+    //     let newId = 0;
 
-        try {
-            const sql = ` INSERT INTO provincias (
-                            usuarioID              , 
-                            urlImagen           , 
-                            descripcion            
-                        ) VALUES (
-                            $1, 
-                            $2, 
-                            $3
-                        ) RETURNING id`;
-            const values =  [   entity.usuarioID,
-                                entity.urlImagen,
-                                entity.descripcion
-                            ];
-            const resultPg = await this.getDBPool().query(sql, values);
-            newId = resultPg.rows[0].id;
-        } catch (error) {
-            console.log(error);
-        }
-        return newId;
-    }
+    //     try {
+    //         const sql = ` INSERT INTO provincias (
+    //                         usuarioID              , 
+    //                         urlImagen           , 
+    //                         descripcion            
+    //                     ) VALUES (
+    //                         $1, 
+    //                         $2, 
+    //                         $3
+    //                     ) RETURNING id`;
+    //         const values =  [   entity.usuarioID,
+    //                             entity.urlImagen,
+    //                             entity.descripcion
+    //                         ];
+    //         const resultPg = await this.getDBPool().query(sql, values);
+    //         newId = resultPg.rows[0].id;
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    //     return newId;
+    // }
 }

@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import PublicacionService from '../services/provincia-service.js'
-import Provincia from '../entities/provincia.js'
+import PublicacionService from '../services/publicacion-service.js'
 
 const router = Router();
 const currentService = new PublicacionService();   
