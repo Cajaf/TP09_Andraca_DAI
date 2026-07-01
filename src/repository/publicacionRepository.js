@@ -1,6 +1,6 @@
 
 import config from './../configs/db-config.js';     
-import pool from "../db/connection.js";
+import pool from "../configs/connections.js";
 
 export default class publicacionRepository {
     constructor() {

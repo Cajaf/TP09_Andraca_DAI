@@ -1,12 +1,19 @@
-import pkg from "pg";
-import config from "../configs/db-config.js";
 
-const { Pool } = pkg;
+import config from "../configs/db-config.js";
+import pool from "../configs/connections.js";
+
 
 export default class UserRepository {
-  constructor() {
-    this.DBPool = new Pool(config);
-  }
+    constructor() {
+        this.DBPool = null;
+    }
+
+    getDBPool = () => {
+        if (this.DBPool == null) {
+        this.DBPool = pool;
+        }
+        return this.DBPool;
+    };
 
   findByEmail = async (email) => {
     try {

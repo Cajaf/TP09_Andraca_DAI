@@ -3,11 +3,12 @@ import cors     from "cors";
 import PublicacionRouter from "./src/controllers/publicacion-controller.js" 
 import 'dotenv'
 import verifyToken from "./src/helpers/jwt.js";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const app  = express(); 
-const port = process.env.PORT || 3000;
+const port = process.env.DB_PORT || 3000;
 
 app.use(cors()); 
 app.use(express.json()); 
